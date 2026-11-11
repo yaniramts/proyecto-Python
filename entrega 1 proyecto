@@ -1,6 +1,6 @@
 """
 Módulo de Gestión de Citas Clínicas.
-Este programa permite administrar las reservas de pacientes en una clínica.
+El programa va a permitir administrar la reserva de citas de los pacientes en una clínica.
 """
 
 # 1. Estructura de almacenamiento principal (Diccionario vacío)
@@ -70,5 +70,5 @@ def modificar_elementos(datos):
 #Intentamos modificar la hora
 
 
-# hacemos que el menú arranque al ejecutar el archivo
+# Llamamos al menú para que arranque al ejecutar el archivo
 menu()
