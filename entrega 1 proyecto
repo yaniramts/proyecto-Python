@@ -22,7 +22,8 @@ def menu():
         
         if opcion == '1':
             insertar_elemento(citas)
-
+        elif opcion == '3':
+            modificar_elementos(citas)
         elif opcion == '5':
             buscar_elementos(citas)
 
@@ -64,10 +65,21 @@ def buscar_elementos(datos):
 def modificar_elementos(datos):
     #Permite modificar la hora de una cita
     buscar_dni = input("Introduce el DNi del paciente que quiere modificar su cita:")
-    nueva_hora = input("Introduce la hora a la que quieres modificar la cita:")
-    datos[buscar_dni]['hora']=nueva_hora
 
-#Intentamos modificar la hora
+    try:
+    #Intentamos modificar la hora
+        cita = datos[buscar_dni]
+
+        print(f"La cita de {cita['nombre']} es a las {cita(['hora'])}")
+        nueva_hora = input("Introduce la hora a la que quieres modificar la cita:")
+
+        datos[buscar_dni]['hora']= nueva_hora
+        print('¡Cita modificada con éxito!')
+
+    except KeyError:
+        print("Error: No existe ninguna cita con ese DNI.")
+
+
 
 
 # Llamamos al menú para que arranque al ejecutar el archivo
