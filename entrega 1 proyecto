@@ -1,0 +1,51 @@
+"""
+Módulo de Gestión de Citas Clínicas.
+Este programa permite administrar las reservas de pacientes en una clínica.
+"""
+
+# 1. Estructura de almacenamiento principal (Diccionario vacío)
+citas = {}
+
+def menu():
+    """Muestra el menú interactivo y mantiene el programa en ejecución."""
+    while True:
+        print("\n=== MENÚ DE LA CLÍNICA ===")
+        print("1. Añadir cita")
+        print("2. Buscar cita")
+        print("3. Modificar cita")
+        print("4. Eliminar cita")
+        print("5. Mostrar todas")
+        print("6. Salir")
+        
+        # Pedimos al usuario que elija una opción
+        opcion = input("Elige una opción (1-6): ")
+        
+        if opcion == '1':
+            insertar_elemento(citas)
+
+        elif opcion == '6':
+            print("Saliendo del programa. ¡Hasta pronto!")
+            break  # Esto rompe el bucle while y cierra el programa
+        else:
+            print("Opción en desarrollo o no válida.")
+
+
+
+# Pedir datos para la cita 
+def insertar_elemento(datos):
+    id_cita = input("Introduce el DNI del paciente:")
+
+    #comprobamos que el DNI no esté vacío
+    if id_cita == "":
+        print("Error: El DNI no puede estar vacío")
+        return
+    
+    nombre = input("Introduce el nombre del paciente:")
+    hora = input("Introduce la hora de la cita (ej: 10:30):")
+
+# guardar los datos en el diccionario (citas={})
+    datos[id_cita]={"nombre":nombre, "hora":hora}
+    print("Cita añadida con éxito!")
+
+# hacemos que el menú arranque al ejecutar el archivo
+menu()
