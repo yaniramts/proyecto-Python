@@ -23,6 +23,9 @@ def menu():
         if opcion == '1':
             insertar_elemento(citas)
 
+        elif opcion == '5':
+            buscar_elementos(citas)
+
         elif opcion == '6':
             print("Saliendo del programa. ¡Hasta pronto!")
             break  # Esto rompe el bucle while y cierra el programa
@@ -46,6 +49,26 @@ def insertar_elemento(datos):
 # guardar los datos en el diccionario (citas={})
     datos[id_cita]={"nombre":nombre, "hora":hora}
     print("Cita añadida con éxito!")
+
+
+def buscar_elementos(datos):
+    #lo usaremos para mostrar las citas guardadas
+    if len(datos)==0:
+        print("\nActualmente no hay citas guardadas")
+        return
+    else:   
+        print("\nESTA ES LA LISTA ACTUAL DE CITAS:")
+        print(datos)
+
+
+def modificar_elementos(datos):
+    #Permite modificar la hora de una cita
+    buscar_dni = input("Introduce el DNi del paciente que quiere modificar su cita:")
+    nueva_hora = input("Introduce la hora a la que quieres modificar la cita:")
+    datos[buscar_dni]['hora']=nueva_hora
+
+#Intentamos modificar la hora
+
 
 # hacemos que el menú arranque al ejecutar el archivo
 menu()
