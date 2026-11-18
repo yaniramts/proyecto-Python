@@ -24,8 +24,10 @@ def menu():
             insertar_elemento(citas)
         elif opcion == '3':
             modificar_elementos(citas)
+        elif opcion == '4':
+            eliminar_elementos(citas)
         elif opcion == '5':
-            buscar_elementos(citas)
+            mostrar_elementos(citas)
 
         elif opcion == '6':
             print("Saliendo del programa. ¡Hasta pronto!")
@@ -52,7 +54,7 @@ def insertar_elemento(datos):
     print("Cita añadida con éxito!")
 
 
-def buscar_elementos(datos):
+def mostrar_elementos(datos):
     #lo usaremos para mostrar las citas guardadas
     if len(datos)==0:
         print("\nActualmente no hay citas guardadas")
@@ -70,7 +72,7 @@ def modificar_elementos(datos):
     #Intentamos modificar la hora
         cita = datos[buscar_dni]
 
-        print(f"La cita de {cita['nombre']} es a las {cita(['hora'])}")
+        print(f"La cita de {cita['nombre']} es a las {cita['hora']}")
         nueva_hora = input("Introduce la hora a la que quieres modificar la cita:")
 
         datos[buscar_dni]['hora']= nueva_hora
@@ -80,7 +82,15 @@ def modificar_elementos(datos):
         print("Error: No existe ninguna cita con ese DNI.")
 
 
-
+def eliminar_elementos(datos):
+    #Permite eliminar una cita proporcionando el DNI del paciente
+    dni_eliminar = input("Introduzca el DNI de la cita que desea eliminar:")
+    try:
+        del datos[dni_eliminar]
+        print("¡Cita eliminada con éxito!")
+    except KeyError :
+        #Si el DNI no está guardado, no se elimina la cita
+        print("ERROR: No existe ninguna cita con ese DNI.")
 
 # Llamamos al menú para que arranque al ejecutar el archivo
 menu()
